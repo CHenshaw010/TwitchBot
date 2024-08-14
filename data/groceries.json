@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "name": "apples",
+        "lowerCostMargin": "8",
+        "upperCostMargin": "10"
+    }, {
+        "id": "2",
+        "name": "cornbread",
+        "lowerCostMargin": "5",
+        "upperCostMargin": "7"
+    }, {
+        "id": "3",
+        "name": "minecraft",
+        "lowerCostMargin": "12",
+        "upperCostMargin": "15"
+    }, {
+        "id": "4",
+        "name": "VR headset",
+        "lowerCostMargin": "300",
+        "upperCostMargin": "350"
+    }, {
+        "id": "5",
+        "name": "excedrin",
+        "lowerCostMargin": "40",
+        "upperCostMargin": "45"
+    }, {
+        "id": "6",
+        "name": "cake",
+        "lowerCostMargin": "17",
+        "upperCostMargin": "20"
+    }, {
+        "id": "7",
+        "name": "phone charger",
+        "lowerCostMargin": "30",
+        "upperCostMargin": "35"
+    }
+]

@@ -1,0 +1,16 @@
+# optional npm cache directory
+.npm
+
+# output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# visual studio code working files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
