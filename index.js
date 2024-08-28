@@ -50,6 +50,27 @@ client.on('connected', (address, port) => {
     client.say(channelForMessage, 'Hello! The Bot is Connected!');
 });
 
+// --------- TIMERS --------- //
+// options for enemy types to spawn at the set interval listed below
+const pickEnemyType = () => {
+    enemyOptions = ['goblins', 'orcs', 'craig'];
+    enemyPick = enemyOptions[rand.random(enemyOptions.length, 0)];
+
+    if (enemyPick === 'goblins') {
+        console.log('ENEMY PICKED: Goblins');
+        client.say(channelForMessage, "goblin goblin goblin goblin goblin goblin goblin goblin goblin goblin we're here to be pesky! we're here to pillage! goblin goblin goblin goblin goblin goblin goblin goblin goblin goblin");
+    } else if (enemyPick === 'orcs') {
+        console.log('ENEMY PICKED: Orcs');
+        client.say(channelForMessage, "orc orc orc orc orc orc orc orc orc orc we bring war! death to all! orc orc orc orc orc orc orc orc orc orc");
+    } else {
+        console.log('ENEMY PICKED: Craig');
+        client.say(channelForMessage, "craig craig craig craig craig craig craig craig craig craig craig hey, I work at BestBuy... please be nice... craig craig craig craig craig craig craig craig craig craig");
+    }
+}
+
+// timed interval of 1 hour (1 sec = 1000 ms -> 3600 secs = 3600000 ms). this controls hourly events for stream messages
+setInterval(pickEnemyType, 3600000);
+
 // --------- COMMANDS --------- //
 client.on('message', async (channel, tags, message, self) => {
     // ignore bot messages
@@ -62,7 +83,7 @@ client.on('message', async (channel, tags, message, self) => {
 
     // !testbot | Result: test reply functionality
     if (command === 'testbot') {
-        client.say(channelForMessage, 'This is a custom test command reply BORT');
+        client.say(channel, 'This is a custom test command reply BORT');
     }
 
     // !stats | Result: check user's stats (mid/cringe)
