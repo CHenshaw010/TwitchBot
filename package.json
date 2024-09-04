@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "command1": "node index.js",
+    "command2": "node discordindex.js",
+    "build": "npm run command1 & command2",
+    "build2": "node index.js & node discordindex.js",
+    "build3": "npm-run-all --parallel command1 command2",
+    "start": "concurrently --kill-others --names Twitch,Discord -c red,blue --pad-prefix \"node discordindex.js\" \"node index.js\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.2",
+    "discord.js": "^14.16.1",
     "dotenv": "^16.4.5",
     "node-fetch": "^2.7.0",
     "pastebin-api": "^7.0.0",

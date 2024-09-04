@@ -68,8 +68,21 @@ const pickEnemyType = () => {
     }
 }
 
-// timed interval of 1 hour (1 sec = 1000 ms -> 3600 secs = 3600000 ms). this controls hourly events for stream messages
+// Periodic general announcements for chat
+const announceChat = () => {
+    announceOptions = [
+        "Want to know when I go live? Join the Beardcord! WatchThisBird or don't idgaf https://discord.gg/XMXd6fZktU LazyHypers",
+        "Stay up to date with me & hang with the community over at our discord LazyHypers - https://discord.gg/XMXd6fZktU",
+        "Enjoying the stream? thanks for hanging :3 feel free to drop a follow, it means a lot! PotLove",
+        "Sorry if I missed your message. I try my best to read chat whenever possible but I'm either just chillin or talking about some bs. If I miss something you said, feel free to repeat it! Just don't spam pls n' thx. PotLove ( WatchThisBird Also fck u I'm not sorry heheChatting )"
+    ];
+    annoucePick = announceOptions[rand.random(announceOptions.length, 0)];
+    client.say(channelForMessage, annoucePick);
+}
+
+// timed interval (1 sec = 1000 ms) this controls events for stream messages
 setInterval(pickEnemyType, 3600000);
+setInterval(announceChat, 1500000);
 
 // --------- COMMANDS --------- //
 client.on('message', async (channel, tags, message, self) => {
