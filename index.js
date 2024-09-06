@@ -5,12 +5,17 @@ const fetch = require('node-fetch');
 // dotenv for environmental variables
 const dotenv = require('dotenv').config();
 
+// required node modules
+// tmi.js, node-fetch, dotenv, discord.js
 
 /* ------------- TO RUN THE BOT -------------
     1. CD to appropriate bot directory
     2. Enter command:
-        node index.js >>log-file.txt
-        -> all logs will be appended to log-file.txt
+        node index.js
+
+        Alternatively for logging:
+            node index.js >>log-file.txt
+            -> all logs will be appended to log-file.txt
    -----------------------------------------
 */
 
@@ -121,7 +126,11 @@ client.on('message', async (channel, tags, message, self) => {
         eightBallOptions = ['All signs point to yes...', 'Yes!', 'My sources say nope.', 'You may rely on it.', 'Concentrate and ask again...', 'Outlook not so good...', 'It is decidedly so!', 'Better not tell you.', 'Very doubtful.', 'Yes - Definitely!', 'It is certain!', 'Most likely.', 'Ask again later.', 'No!', 'Outlook good.', 'Don\'t count on it.'];
         eightBallPick = eightBallOptions[rand.random(eightBallOptions.length, 0)];
 
-        client.say(channel, `🎱 ${eightBallPick}`);
+        if (args[0] == undefined) {
+            client.say(channel, 'What is your question?');
+        } else {
+            client.say(channel, `🎱 ${eightBallPick}`);
+        }
     }
 
     // !bald | Result: ur bald lol
@@ -218,11 +227,11 @@ client.on('message', async (channel, tags, message, self) => {
 
     // !stock | Result: checks to see how Grace's Goodies have done stock-wise
     if (command === 'stock') {
-        stockOptions = ['📈 Grace\'s Goodies has gone up', '📉 Grace\'s Goodies has gone down'];
         stockAmount = rand.random(100);
+        stockOptions = [`Grace\'s Goodies has gone up ${stockAmount}%! 📈📈`, `Grace\'s Goodies has gone down ${stockAmount}%! 📉📉`];
         stockOptionsPick = stockOptions[rand.random(stockOptions.length, 0)];
 
-        client.say(channel, `Currently, the stock of ${stockOptionsPick} ${stockAmount}%`);
+        client.say(channel, `Currently, the stock of ${stockOptionsPick}`);
     }
 
     // !tax | Result: determines tax user must pay
@@ -335,7 +344,7 @@ client.on('message', async (channel, tags, message, self) => {
     if (command === 'groceries') {
         // local variables
         groceryRandomRoll = rand.randomInclusive(200, 0);
-        groceryCompOptions = ['generic comp option 1', 'generic comp option 2', 'generic comp option 3'];
+        groceryCompOptions = ['a sewage pipe burst', 'a five-finger discount', 'a measels outbreak'];
         groceryPrices = [];
         grocerySelection = [];
         totalItemPrice = 0;

@@ -15,11 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.2",
     "discord.js": "^14.16.1",
     "dotenv": "^16.4.5",
     "node-fetch": "^2.7.0",
-    "pastebin-api": "^7.0.0",
     "tmi.js": "^1.8.5"
   }
 }
