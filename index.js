@@ -79,7 +79,8 @@ const announceChat = () => {
         "Want to know when I go live? Join the Beardcord! WatchThisBird or don't idgaf https://discord.gg/XMXd6fZktU LazyHypers",
         "Stay up to date with me & hang with the community over at our discord LazyHypers - https://discord.gg/XMXd6fZktU",
         "Enjoying the stream? thanks for hanging :3 feel free to drop a follow, it means a lot! PotLove",
-        "Sorry if I missed your message. I try my best to read chat whenever possible but I'm either just chillin or talking about some bs. If I miss something you said, feel free to repeat it! Just don't spam pls n' thx. PotLove ( WatchThisBird Also fck u I'm not sorry heheChatting )"
+        "Sorry if I missed your message. I try my best to read chat whenever possible but I'm either just chillin or talking about some bs. If I miss something you said, feel free to repeat it! Just don't spam pls n' thx. PotLove ( WatchThisBird Also fck u I'm not sorry heheChatting )",
+        "Mobile viewers can save from paying ❗higher❗ mobile prices with these links https://www.twitch.tv/bits and https://www.twitch.tv/subs/LazyBeardd"
     ];
     annoucePick = announceOptions[rand.random(announceOptions.length, 0)];
     client.say(channelForMessage, annoucePick);
@@ -421,5 +422,10 @@ client.on('message', async (channel, tags, message, self) => {
         } catch (error) {
             console.error(error.message);
         }
+    }
+
+    // !mobile | Result: displays links for desktop purchases which are cheaper than mobile purchases
+    if (command === 'mobile') {
+        client.say(channel, "Mobile viewers can save from paying ❗higher❗ mobile prices with these links https://www.twitch.tv/bits and https://www.twitch.tv/subs/LazyBeardd");
     }
 });
